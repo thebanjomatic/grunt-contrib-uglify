@@ -56,31 +56,31 @@ This task primarily delegates to [UglifyJS2][], so please consider the [UglifyJS
 
 
 #### mangle
-Type: `Boolean` `Object`  
+Type: `Boolean` `Object`
 Default: `{}`
 
 Turn on or off mangling with default options. If an `Object` is specified, it is passed directly to `ast.mangle_names()` *and* `ast.compute_char_frequency()` (mimicking command line behavior). [View all options here](https://github.com/mishoo/UglifyJS2#mangler-options).
 
 #### compress
-Type: `Boolean` `Object`  
+Type: `Boolean` `Object`
 Default: `{}`
 
 Turn on or off source compression with default options. If an `Object` is specified, it is passed as options to `UglifyJS.Compressor()`. [View all options here](https://github.com/mishoo/UglifyJS2#compressor-options).
 
 #### beautify
-Type: `Boolean` `Object`  
+Type: `Boolean` `Object`
 Default: `false`
 
 Turns on beautification of the generated source code. An `Object` will be merged and passed with the options sent to `UglifyJS.OutputStream()`. [View all options here](https://github.com/mishoo/UglifyJS2#beautifier-options)
 
 ###### expression
-Type: `Boolean`  
+Type: `Boolean`
 Default: `false`
 
 Parse a single expression, rather than a program (for parsing JSON)
 
 #### report
-Choices: `'none'`, `'min'`, `'gzip'`  
+Choices: `'none'`, `'min'`, `'gzip'`
 Default: `'min'`
 
 Either report only minification result or report minification and gzip results.
@@ -88,19 +88,19 @@ This is useful to see exactly how well UglifyJS is performing but using `'gzip'`
 If `'none'` is used the report will be generated on the verbose output.
 
 #### sourceMap
-Type: `Boolean`  
+Type: `Boolean`
 Default: `false`
 
 If `true`, a source map file will be generated in the same directory as the `dest` file. By default it will have the same basename as the `dest` file, but with a `.map` extension.
 
 #### sourceMapName
-Type: `String` `Function`  
+Type: `String` `Function`
 Default: `undefined`
 
 To customize the name or location of the generated source map, pass a string to indicate where to write the source map to. If a function is provided, the uglify destination is passed as the argument and the return value will be used as the file name.
 
 #### sourceMapIn
-Type: `String` `Function`  
+Type: `String` `Function`
 Default: `undefined`
 
 The location of an input source map from an earlier compilation, e.g. from CoffeeScript. If a function is provided, the
@@ -108,13 +108,13 @@ uglify source is passed as the argument and the return value will be used as the
 when there's one source file.
 
 #### sourceMapIncludeSources
-Type: `Boolean`  
+Type: `Boolean`
 Default: `false`
 
 Pass this flag if you want to include the content of source files in the source map as sourcesContent property.
 
 ###### sourceMapRoot
-Type: `String`  
+Type: `String`
 Default: `undefined`
 
 With this option you can customize root URL that browser will use when looking for sources.
@@ -122,20 +122,20 @@ With this option you can customize root URL that browser will use when looking f
 If the sources are not absolute URLs after prepending of the `sourceMapRoot`, the sources are resolved relative to the source map.
 
 #### sourceMapUrl
-Type: `String`  
+Type: `String`
 Default: `undefined`
 
 Override the calculated value for `sourceMappingURL` in the source map. This is useful if the source map location is not relative to the base path of the minified file, i.e. when using a CDN
 
 ###### enclose
-Type: `Object`  
+Type: `Object`
 Default: `undefined`
 
 Wrap all of the code in a closure with a configurable arguments/parameters list.
 Each key-value pair in the `enclose` object is effectively an argument-parameter pair.
 
 #### wrap
-Type: `String`  
+Type: `String`
 Default: `undefined`
 
 Wrap all of the code in a closure, an easy way to make sure nothing is leaking.
@@ -143,26 +143,26 @@ For variables that need to be public `exports` and `global` variables are made a
 The value of wrap is the global variable exports will be available as.
 
 #### maxLineLen
-Type: `Number`  
+Type: `Number`
 Default: `32000`
 
 Limit the line length in symbols. Pass maxLineLen = 0 to disable this safety feature.
 
 #### ASCIIOnly
-Type: `Boolean`  
+Type: `Boolean`
 Default: `false`
 
 Enables to encode non-ASCII characters as \uXXXX.
 
 #### exportAll
-Type: `Boolean`  
+Type: `Boolean`
 Default: `false`
 
 When using `wrap` this will make all global functions and variables available via the export variable.
 
 #### preserveComments
-Type: `Boolean` `String` `Function`  
-Default: `undefined`  
+Type: `Boolean` `String` `Function`
+Default: `undefined`
 Options: `false` `'all'` `'some'`
 
 Turn on preservation of comments.
@@ -174,51 +174,51 @@ Turn on preservation of comments.
 - `RegExp` `'/[RegExp]/'` will preserve comments matching given RegExp or stringified RegExp
 
 #### banner
-Type: `String`  
+Type: `String`
 Default: `''`
 
 This string will be prepended to the minified output. Template strings (e.g. `<%= config.value %>` will be expanded automatically.
 
 #### footer
-Type: `String`  
+Type: `String`
 Default: `''`
 
 This string will be appended to the minified output. Template strings (e.g. `<%= config.value %>` will be expanded automatically.
 
 #### screwIE8
-Type: `Boolean`  
+Type: `Boolean`
 Default: `true`
 
 Set this to `false` if you still care about full compliance with Internet Explorer 6-8 quirks.
 
 #### mangleProperties
-Type: `Boolean` `Object`  
+Type: `Boolean` `Object`
 Default: `false`
 
 Turn on or off property mangling with default options. If an `Object` is specified, it is passed directly to `ast.mangle_properties()` (mimicking command line behavior). [View all options here](https://github.com/mishoo/UglifyJS2#mangler-options).
 
 #### reserveDOMProperties
-Type: `Boolean`  
+Type: `Boolean`
 Default: `false`
 
 Use this flag in conjunction with `mangleProperties` to prevent built-in browser object properties from being mangled.
 
 #### exceptionsFiles
-Type: `Array`  
+Type: `Array`
 Default: `[]`
 
 Use this with `mangleProperties` to pass one or more JSON files containing a list of variables and object properties
 that should not be mangled. See the [UglifyJS docs](https://www.npmjs.com/package/uglify-js) for more info on the file syntax.
 
 #### nameCache
-Type: `String`  
+Type: `String`
 Default: `''`
 
 A string that is a path to a JSON cache file that uglify will create and use to coordinate symbol mangling between
 multiple runs of uglify. Note: this generated file uses the same JSON format as the `exceptionsFiles` files.
 
 #### quoteStyle
-Type: `Integer`  
+Type: `Integer`
 Default: `0`
 
 Preserve or enforce quotation mark style.
@@ -227,6 +227,13 @@ Preserve or enforce quotation mark style.
 * `1` will always use single quotes
 * `2` will always use double quotes
 * `3` will preserve original quotation marks
+
+#### wrapIIFE
+Type: `Boolean`
+Default: `false`
+
+Wrap IIFEs in parenthesis to aid with browser optimizations for script parsing.
+Note: this disables the negate_iife compression option
 
 ### Usage examples
 

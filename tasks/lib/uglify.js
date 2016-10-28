@@ -279,6 +279,10 @@ exports.init = function(grunt) {
       outputOptions.comments = options.preserveComments;
     }
 
+    if (typeof options.wrapIIFE !== 'undefined') {
+       outputOptions.wrap_iife = options.wrapIIFE;
+    }
+
     if (options.beautify) {
       if (typeof options.beautify === 'object') {
         assign(outputOptions, options.beautify);
